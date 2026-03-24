@@ -1,0 +1,580 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.cancelStageBtn {
+  background: var(--accent-light);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.cancelStageBtn:hover {
+  background: #f5d5c0;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--ink-light);
+}
+
+.clearBtn {
+  background: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--ink-light);
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.clearBtn:hover {
+  background: #fdecea;
+  border-color: #e74c3c;
+  color: #c0392b;
+}
+
+.empty {
+  color: var(--ink-faint);
+  font-size: 14.5px;
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* ── Week grid ── */
+.weekGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+/* When a meal is staged, highlight the day cards as drop targets */
+.weekGridStaged .dayCard {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(212,98,26,0.12);
+}
+
+.dayCardStageable {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.dayCardStageable:hover {
+  background: var(--accent-light) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(212,98,26,0.2) !important;
+}
+
+.dayCard {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  min-height: 110px;
+}
+
+.dayCard:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.dayCardFilled {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.08), var(--shadow-sm);
+}
+
+.dayCardFilled:hover {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.12), var(--shadow-md);
+}
+
+.dayHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dayIcon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.dayName {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.clearDayBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-faint);
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+
+.clearDayBtn:hover {
+  color: #c0392b;
+}
+
+.assignedMeal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-2-light);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  flex: 1;
+}
+
+.assignedEmoji {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.assignedName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-2);
+  line-height: 1.3;
+}
+
+.dayEmpty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-style: italic;
+  flex: 1;
+  transition: color 0.15s;
+}
+
+/* ── Recipe panel ── */
+.recipePanel {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.recipePanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.recipePanelTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.recipePanelHint {
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+.recipeCard {
+  background: var(--card);
+  border: none;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.recipeCard:hover {
+  background: var(--cream);
+}
+
+.recipeCardStaged {
+  background: var(--accent-light) !important;
+  position: relative;
+}
+
+.recipeCardAssigned {
+  opacity: 0.6;
+}
+
+.recipeCardEmoji {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.recipeCardInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.recipeCardName {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recipeCardMeta {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  margin-top: 1px;
+}
+
+.recipeCardDay {
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.recipeCardCheck {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.addIcon {
+  width: 22px;
+  height: 22px;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-style: normal;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+/* ── Summary ── */
+.summary {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  animation: fadeUp 0.3s ease both;
+}
+
+.summaryLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summaryDay {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-light);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.summaryDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+.summaryMeal {
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ────────────────────────────────────
+   MODAL / PICKER
+──────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 25, 22, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.18s ease both;
+}
+
+.modal {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--ink-faint);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+
+.modalClose:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Search bar */
+.modalSearch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modalSearchIcon {
+  position: absolute;
+  left: 1.6rem;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.modalSearchInput {
+  width: 100%;
+  padding: 9px 36px 9px 34px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.modalSearchInput:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212,98,26,0.12);
+  background: white;
+}
+
+.clearSearch {
+  position: absolute;
+  right: 1.6rem;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--ink-faint);
+  padding: 4px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.clearSearch:hover {
+  color: var(--ink);
+}
+
+/* Remove option */
+.removeOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 1.25rem;
+  font-size: 13.5px;
+  font-family: 'Outfit', sans-serif;
+  color: #c0392b;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.removeOption:hover {
+  background: #fdecea;
+}
+
+/* Meal grid inside modal */
+.modalGrid {
+  overflow-y: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modalEmpty {
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 13.5px;
+  padding: 2rem 1rem;
+  font-style: italic;
+}
+
+.mealOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  text-align: left;
+  transition: background 0.12s, border-color 0.12s;
+  cursor: pointer;
+}
+
+.mealOption:hover {
+  background: var(--cream);
+  border-color: var(--border);
+}
+
+.mealOptionSelected {
+  background: var(--accent-2-light);
+  border-color: var(--accent-2);
+}
+
+.mealOptionSelected:hover {
+  background: var(--accent-2-light);
+  border-color: var(--accent-2);
+}
+
+.mealOptionEmoji {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.mealOptionInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.mealOptionName {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mealOptionCount {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 1px;
+}
+
+.mealOptionCheck {
+  font-size: 15px;
+  color: var(--accent-2);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .weekGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal {
+    max-height: 90vh;
+  }
+}

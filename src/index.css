@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F8F5EF;
+  --cream-deep: #F0EBE1;
+  --ink: #1A1916;
+  --ink-light: #635E56;
+  --ink-faint: #B0AB9E;
+  --accent: #D4621A;
+  --accent-hover: #BF5415;
+  --accent-light: #FCF0E8;
+  --accent-2: #2D6A4F;
+  --accent-2-light: #E4F2EC;
+  --border: rgba(28,27,24,0.10);
+  --border-strong: rgba(28,27,24,0.22);
+  --card: #FFFFFF;
+  --card-hover: #FDFCFA;
+  --surface: rgba(255,255,255,0.7);
+  --shadow-sm: 0 1px 3px rgba(28,27,24,0.07), 0 1px 2px rgba(28,27,24,0.04);
+  --shadow-md: 0 4px 12px rgba(28,27,24,0.10), 0 2px 4px rgba(28,27,24,0.06);
+  --shadow-lg: 0 12px 32px rgba(28,27,24,0.12), 0 4px 8px rgba(28,27,24,0.08);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --green: #2D6A4F;
+  --green-light: #E4F2EC;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3 {
+  font-family: 'Instrument Serif', serif;
+  letter-spacing: -0.02em;
+}
+
+input, textarea, select, button {
+  font-family: 'Outfit', sans-serif;
+}
+
+button { cursor: pointer; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 2px; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes checkmark {
+  0%   { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.fade-up {
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

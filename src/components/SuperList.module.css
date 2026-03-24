@@ -1,0 +1,321 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--ink-light);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ghostBtn {
+  background: none;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-family: 'Outfit', sans-serif;
+  color: var(--ink-light);
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ghostBtn:hover {
+  background: var(--cream-deep);
+  border-color: var(--ink-faint);
+}
+
+.copyBtn {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 16px;
+  font-size: 13px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.12s;
+  box-shadow: var(--shadow-sm);
+}
+
+.copyBtn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* ── Meals summary ── */
+.meals {
+  margin-bottom: 1.5rem;
+}
+
+.mealsLabel {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.mealTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mealTag {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Progress bar ── */
+.progressWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.75rem;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), #3d8f68);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progressLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-2);
+  width: 32px;
+  text-align: right;
+}
+
+/* ── View Toggle ── */
+.viewToggle {
+  display: flex;
+  background: var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.toggleBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  color: var(--ink-light);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.toggleBtn:hover {
+  color: var(--ink);
+}
+
+.toggleBtnActive {
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(28,27,24,0.08);
+}
+
+/* ── Groups ── */
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.group {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.groupHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.groupEmoji {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.groupLabel {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-light);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.groupSubLabel {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.groupCount {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  background: var(--border);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* ── Ingredient list ── */
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  cursor: pointer;
+  transition: background 0.12s;
+  border-bottom: 1px solid var(--border);
+  user-select: none;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: var(--cream);
+}
+
+.done {
+  opacity: 0.45;
+}
+
+.done .ingName {
+  text-decoration: line-through;
+}
+
+/* Custom checkbox */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-strong);
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+  background: white;
+}
+
+.checkboxDone {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: white;
+}
+
+.checkSvg {
+  width: 12px;
+  height: 12px;
+}
+
+.checkSvg polyline {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 0;
+  animation: checkmark 0.22s ease forwards;
+}
+
+.ingName {
+  font-size: 14px;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+
+/* ── Empty state ── */
+.empty {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--ink-light);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.emptyHint {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  margin-top: 6px;
+}
+
+/* ── All done banner ── */
+.allDone {
+  margin-top: 1.5rem;
+  background: var(--accent-2-light);
+  border: 1.5px solid var(--accent-2);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--accent-2);
+  text-align: center;
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
