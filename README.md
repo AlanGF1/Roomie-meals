@@ -1,67 +1,51 @@
 # 🍳 Roomie Meals
 
-Recetario compartido para planear la comida de la semana y generar la lista del súper automáticamente. Diseñado para que el plan del domingo dure minutos y la compra sea sin drama.
+> Recetario compartido para planear la comida de la semana y generar la lista del súper automáticamente.
+
+El plan del domingo en minutos. La compra sin drama. Para todos en el depa al mismo tiempo.
+
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=netlify&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 
 ---
 
-## ✨ Lo bonito de esta app
+## ✨ Qué hace
 
-- Recetario con emojis, búsqueda y edición rápida.
-- Planeación semanal con dos modos: elegir receta y asignar día, o buscar por día.
-- Lista del súper única, sin duplicados, con progreso y modo por categoría o por día.
-- Copiar lista con un clic para mandarla al chat.
-- Sincronización en tiempo real para que todos vean lo mismo al instante.
-
----
-
-## 🧭 Cómo funciona (flujo real)
-
-1. Agregas recetas con sus ingredientes.
-2. El domingo asignas platillos a los días.
-3. La pestaña **Súper** arma la lista y la puedes ir palomeando.
+| Función | Detalle |
+|---|---|
+| 📖 Recetario | Emojis, búsqueda y edición rápida |
+| 📅 Planeación semanal | Asigna recetas por día o busca por platillo |
+| 🛒 Lista del súper | Sin duplicados, con progreso, por categoría o por día |
+| 📋 Copiar con un clic | Lista lista para pegar en el chat del grupo |
+| 🔄 Sincronización en tiempo real | Todos ven lo mismo al instante |
 
 ---
 
-## 🗂️ Estructura de datos (Firestore)
+## 🧭 Flujo real
+```
+Agregar recetas → Planear la semana → Generar lista → Ir al súper ✓
+```
 
-- `meals` (colección)
-- `plans/current` (documento)
-
-Cada receta guarda:
-- `name`
-- `ingredients` (array de strings)
-- `emoji`
-- `createdAt`
-
-El plan semanal guarda:
-- `days` (objeto con clave por día y valor `mealId`)
+1. **Recetario** — Agrega platillos con ingredientes y emoji.
+2. **Plan semanal** — El domingo asignas cada receta a su día.
+3. **Súper** — La app arma la lista consolidada y la vas palomeando.
 
 ---
 
-## 🧪 Stack
+## 🚀 Correr local
 
-- React + Vite
-- Firebase Firestore
-- Netlify
-
----
-
-## 🚀 Corre local
-
-1. Instala dependencias
-
+### 1. Instala dependencias
 ```bash
 npm install
 ```
 
-2. Crea tu proyecto en Firebase y habilita Firestore (modo prueba)
+### 2. Configura Firebase
 
-```text
-https://console.firebase.google.com
-```
+Crea un proyecto en [console.firebase.google.com](https://console.firebase.google.com) y habilita **Firestore** en modo prueba.
 
-3. Pega tu config en `src/firebase.js`
-
+Luego pega tu configuración en `src/firebase.js`:
 ```js
 const firebaseConfig = {
   apiKey: "AIzaSy...",
@@ -73,8 +57,7 @@ const firebaseConfig = {
 }
 ```
 
-4. Arranca el dev server
-
+### 3. Levanta el servidor
 ```bash
 npm run dev
 ```
@@ -83,33 +66,41 @@ npm run dev
 
 ## 🌍 Deploy en Netlify
 
-### Opción A: Drag & drop
-
-1. Build
-
+**Opción A — Drag & drop**
 ```bash
 npm run build
+# Sube la carpeta dist/ en netlify.com
 ```
 
-2. Sube la carpeta `dist/` a Netlify
+**Opción B — Desde GitHub (recomendado)**
 
-```text
-https://netlify.com
-```
-
-### Opción B: Desde GitHub (recomendado)
-
-1. Sube el repo
-2. En Netlify: `Add new site → Import from Git`
-3. Build command: `npm run build`
-4. Publish directory: `dist`
+1. Sube el repo a GitHub.
+2. En Netlify: `Add new site → Import from Git`.
+3. Configura:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
 
 ---
 
-## 🔒 Reglas de Firestore (opcional)
+## 🗂️ Estructura de datos (Firestore)
+```
+firestore/
+├── meals/          ← colección de recetas
+│   └── {mealId}
+│       ├── name
+│       ├── emoji
+│       ├── ingredients   (string[])
+│       └── createdAt
+└── plans/
+    └── current     ← plan de la semana activa
+        └── days    ({ lunes: mealId, martes: mealId, ... })
+```
 
-Para uso entre roomies está bien con modo prueba. Si quieres reglas explícitas:
+---
 
+## 🔒 Reglas de Firestore
+
+Para uso entre roomies el modo prueba funciona bien. Si prefieres reglas explícitas:
 ```js
 rules_version = '2';
 service cloud.firestore {
@@ -121,17 +112,27 @@ service cloud.firestore {
 }
 ```
 
+> ⚠️ Estas reglas permiten acceso público. Agrega autenticación antes de compartir la URL con desconocidos.
+
 ---
 
-## 🧩 Ideas para mejorar después
+## 🧩 Roadmap
 
-- Autenticación simple por link o email.
-- Historial de semanas anteriores.
-- Exportar lista a PDF.
-- Inventario de despensa para evitar comprar de más.
+- [ ] Autenticación por link o email
+- [ ] Historial de semanas anteriores
+- [ ] Exportar lista a PDF
+- [ ] Inventario de despensa para no comprar de más
+- [ ] Modo oscuro
+
+---
+
+## 🤝 Contribuir
+
+¿Lo usas y le agregaste algo? ¡Se agradece el PR! Abre un issue primero para platicar el cambio.
 
 ---
 
 ## 🫶 Hecho para vivir con roomies
-
-Si lo usas y le haces mejoras, ¡me encantaría verlas!
+```
+Hecho con ♥ para el depa
+```
