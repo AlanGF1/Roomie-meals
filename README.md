@@ -19,18 +19,36 @@ El plan del domingo en minutos. La compra sin drama. Para todos en el depa al mi
 | 📅 Planeación semanal | Asigna recetas por día o busca por platillo |
 | 🛒 Lista del súper | Sin duplicados, con progreso, por categoría o por día |
 | 📋 Copiar con un clic | Lista lista para pegar en el chat del grupo |
-| 🔄 Sincronización en tiempo real | Todos ven lo mismo al instante |
+| 🔄 Sincronización real | Todos ven lo mismo al instante |
+| 💰 Caja de la casa | Saldo, movimientos, aportes semanales y deudas |
 
 ---
 
 ## 🧭 Flujo real
+
 ```
-Agregar recetas → Planear la semana → Generar lista → Ir al súper ✓
+Agregar recetas → Planear la semana → Generar lista → Gestionar Caja → Ir al súper ✓
 ```
 
 1. **Recetario** — Agrega platillos con ingredientes y emoji.
 2. **Plan semanal** — El domingo asignas cada receta a su día.
 3. **Súper** — La app arma la lista consolidada y la vas palomeando.
+4. **Caja** — Registras ingresos/gastos y el estado de aportes de cada roomie.
+
+---
+
+## 🗂️ Estructura de datos (Firestore)
+
+- `meals` (colección): Recetas con `name`, `ingredients` (array), `emoji`.
+- `plans/current` (documento): Claves por día y valor `mealId`.
+- `cash` (colección): Movimientos con `type` (in/out), `amount`, `description`, `person`, `kind` (manual/weekly/debt).
+- `cashbox/current` (documento): `weeklyAmount`, `members` (nombre, deuda, pago), `weekStart`.
+
+**Reglas de negocio:**
+- La semana inicia cada lunes (se reinicia el estado de pagos).
+- Lo no pagado se suma automáticamente a `debtAmount`.
+- Los gastos requieren seleccionar a la persona responsable.
+- Historial: se conservan movimientos del mes actual y anterior.
 
 ---
 
@@ -82,22 +100,6 @@ npm run build
 
 ---
 
-## 🗂️ Estructura de datos (Firestore)
-```
-firestore/
-├── meals/          ← colección de recetas
-│   └── {mealId}
-│       ├── name
-│       ├── emoji
-│       ├── ingredients   (string[])
-│       └── createdAt
-└── plans/
-    └── current     ← plan de la semana activa
-        └── days    ({ lunes: mealId, martes: mealId, ... })
-```
-
----
-
 ## 🔒 Reglas de Firestore
 
 Para uso entre roomies el modo prueba funciona bien. Si prefieres reglas explícitas:
@@ -116,19 +118,14 @@ service cloud.firestore {
 
 ---
 
-## 🧩 Roadmap
+## 🧩 Ideas para mejorar (Roadmap)
 
 - [ ] Autenticación por link o email
 - [ ] Historial de semanas anteriores
 - [ ] Exportar lista a PDF
 - [ ] Inventario de despensa para no comprar de más
+- [ ] Reporte mensual de caja (gasto por persona / por categoría)
 - [ ] Modo oscuro
-
----
-
-## 🤝 Contribuir
-
-¿Lo usas y le agregaste algo? ¡Se agradece el PR! Abre un issue primero para platicar el cambio.
 
 ---
 

@@ -1,0 +1,641 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--ink-light);
+  margin-top: 4px;
+}
+
+.headerMeta {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.weekStart {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.statLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: 1.4rem;
+  margin-top: 6px;
+  color: var(--ink);
+}
+
+.statPositive {
+  color: var(--green);
+}
+
+.statNegative {
+  color: #B83B2E;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.form,
+.weekBox,
+.log {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.formHeader {
+  margin-bottom: 1rem;
+}
+
+.formTitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.formHint {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  padding: 10px 12px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 98, 26, 0.12);
+  background: #fff;
+}
+
+.primaryBtn {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(212, 98, 26, 0.28);
+  transition: transform 0.1s, box-shadow 0.2s, background 0.2s;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(212, 98, 26, 0.34);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondaryBtn,
+.ghostBtn {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--card);
+  color: var(--ink);
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.secondaryBtn:hover,
+.ghostBtn:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.weekBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weekHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.weekAmountRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.weekSummary {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  border: 1px dashed var(--border-strong);
+}
+
+.weekSummaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ink-light);
+}
+
+.addMemberRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+}
+
+.addMemberControls {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12.5px;
+  color: var(--ink-light);
+}
+
+.checkboxRow input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+}
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.memberItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--cream);
+  flex-wrap: wrap;
+}
+
+.memberPaid {
+  background: var(--green-light);
+  border-color: rgba(45, 106, 79, 0.2);
+}
+
+.memberName {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.memberInfo {
+  min-width: 0;
+  flex: 1;
+}
+
+.memberMeta {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+.memberDebt {
+  font-size: 12px;
+  color: #B83B2E;
+  margin-top: 4px;
+}
+
+.memberActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.weekRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.payBtn {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exemptTag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #E8E4DC;
+  color: var(--ink-light);
+  font-weight: 700;
+}
+
+.toggleBtn {
+  border: 1px solid var(--border-strong);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.toggleBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.payBtn:hover {
+  background: var(--accent-hover);
+}
+
+.statusPill {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.statusPaid {
+  background: var(--green);
+  color: #fff;
+}
+
+.statusDue {
+  background: #F6D9D5;
+  color: #B83B2E;
+}
+
+.deleteBtn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink-light);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.deleteBtn:hover {
+  border-color: #B83B2E;
+  color: #B83B2E;
+}
+
+.debtRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.debtActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pendingBox {
+  background: #FBEFEA;
+  border: 1px solid #F1D2C6;
+  border-radius: var(--radius-md);
+  padding: 0.8rem;
+}
+
+.pendingTitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #B83B2E;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pendingNames {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.log {
+  margin-top: 0.5rem;
+}
+
+.logHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logMeta {
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.logFilters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.txnGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.monthGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.monthLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.txnList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.txn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.txn:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.txnTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.txnMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.txnRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.txnMeta {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+}
+
+.txnAmount {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.txnIn .txnAmount {
+  color: var(--green);
+}
+
+.txnOut .txnAmount {
+  color: #B83B2E;
+}
+
+.txnActions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.editBtn,
+.deleteBtnSmall {
+  border: 1px solid var(--border-strong);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.editBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.deleteBtnSmall:hover {
+  border-color: #B83B2E;
+  color: #B83B2E;
+}
+
+.autoTag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.txnEdit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.txnEditRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.txnEditActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 2.5rem 0 1rem;
+  color: var(--ink-faint);
+}
+
+.emptyIcon {
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.emptySmall {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 820px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .weekAmountRow,
+  .addMemberRow {
+    grid-template-columns: 1fr;
+  }
+
+  .weekRow {
+    grid-template-columns: 1fr;
+  }
+
+  .debtRow {
+    grid-template-columns: 1fr;
+  }
+
+  .txn {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .txnRight {
+    align-items: flex-start;
+  }
+}

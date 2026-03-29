@@ -7,12 +7,14 @@ import {
 import Recetario from './components/Recetario.jsx'
 import Semana from './components/Semana.jsx'
 import SuperList from './components/SuperList.jsx'
+import Caja from './components/Caja.jsx'
 import styles from './App.module.css'
 
 const TABS = [
   { id: 'recetario', label: '🍳 Recetario' },
   { id: 'semana',    label: '📅 Semana' },
   { id: 'super',     label: '🛒 Súper' },
+  { id: 'caja',      label: '💵 Caja' },
 ]
 
 export default function App() {
@@ -103,6 +105,9 @@ export default function App() {
             )}
             {tab === 'super' && (
               <SuperList meals={meals} week={week} />
+            )}
+            {tab === 'caja' && (
+              <Caja />
             )}
           </>
         )}
